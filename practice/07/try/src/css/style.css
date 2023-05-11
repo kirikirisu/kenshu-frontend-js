@@ -1,0 +1,41 @@
+#form {
+  width: 400px;
+  margin: 40px auto 0;
+}
+#form div {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+#form div span {
+  width: 150px;
+}
+#form div span .required{
+  color: red;
+}
+#form div input[name=name]{
+  width: 100px;
+}
+#form div input[name=mail]{
+  width: 200px;
+}
+.terms {
+  margin-top: 20px;
+  justify-content: center;
+}
+#error {
+  display: none;
+  text-align: center;
+  color: red;
+}
+#error.is-active {
+  display: block;
+}
+.button-wrapper {
+  width: 100px;
+  margin: 20px auto;
+}
+#button {
+  display: block;
+  width: 100%;
+}

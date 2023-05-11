@@ -1,6 +1,5 @@
 (() => {
   window.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM fully loaded and parsed");
     const button = document.getElementById("button");
 
     const [dataType] = document.getElementsByClassName("text--type");

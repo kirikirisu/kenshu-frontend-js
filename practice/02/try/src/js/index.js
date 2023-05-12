@@ -6,8 +6,8 @@
     const [className] = document.getElementsByClassName("text--class");
 
     button.onclick = () => {
-      dataType.append(button.dataset.type);
-      className.append(button.className);
+      dataType.textContent = button.dataset.type;
+      className.textContent = button.className;
     };
   });
 })();

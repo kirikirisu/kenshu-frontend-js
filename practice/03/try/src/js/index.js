@@ -1,15 +1,15 @@
-const toggleActiveClass = (flag, deps) => {
-  if (flag === "open") {
-    deps.forEach((element) => {
-      element.classList.add("is-active");
-    });
-    return;
-  }
-  if (flag === "close") {
+const toggleActiveClass = (deps) => {
+  return (flag) => {
+    if (flag) {
+      deps.forEach((element) => {
+        element.classList.add("is-active");
+      });
+      return;
+    }
     deps.forEach((element) => {
       element.classList.remove("is-active");
     });
-  }
+  };
 };
 
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -19,15 +19,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const content = document.getElementById("modal-content");
   const close = document.getElementById("modal-close");
 
+  const toggle = toggleActiveClass([overlay, content]);
+
   button.addEventListener("click", () => {
-    toggleActiveClass("open", [overlay, content]);
+    toggle(true);
   });
 
   overlay.addEventListener("click", () => {
-    toggleActiveClass("close", [overlay, content]);
+    toggle(false);
   });
 
   close.addEventListener("click", () => {
-    toggleActiveClass("close", [overlay, content]);
+    toggle(false);
   });
 });

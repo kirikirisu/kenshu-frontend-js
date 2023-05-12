@@ -19,14 +19,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const content = document.getElementById("modal-content");
   const close = document.getElementById("modal-close");
 
-  button.onclick = () => {
+  button.addEventListener("click", () => {
     toggleActiveClass("open", [overlay, content]);
-  };
+  });
 
-  overlay.onclick = () => {
+  overlay.addEventListener("click", () => {
     toggleActiveClass("close", [overlay, content]);
-  };
-  close.onclick = () => {
+  });
+
+  close.addEventListener("click", () => {
     toggleActiveClass("close", [overlay, content]);
-  };
+  });
 });

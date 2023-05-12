@@ -7,10 +7,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     document.getElementById("text-wrapper").classList.add("is-active");
 
-    let checkedGender = "";
-    inputGenderList.forEach((input) => {
-      if (input.checked) checkedGender = input.value;
-    });
+    const checkedGender = document.querySelector(
+      'input[name="gender"]:checked'
+    ).value;
 
     document.getElementById("name-text").textContent = inputName;
     document.getElementById("gender-text").textContent = checkedGender;

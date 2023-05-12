@@ -1,3 +1,17 @@
+const toggleActiveClass = (flag, deps) => {
+  if (flag === "open") {
+    deps.forEach((element) => {
+      element.classList.add("is-active");
+    });
+    return;
+  }
+  if (flag === "close") {
+    deps.forEach((element) => {
+      element.classList.remove("is-active");
+    });
+  }
+};
+
 window.addEventListener("DOMContentLoaded", (event) => {
   const button = document.getElementById("button");
 
@@ -6,16 +20,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const close = document.getElementById("modal-close");
 
   button.onclick = () => {
-    overlay.classList.add("is-active");
-    content.classList.add("is-active");
+    toggleActiveClass("open", [overlay, content]);
   };
 
   overlay.onclick = () => {
-    overlay.classList.remove("is-active");
-    content.classList.remove("is-active");
+    toggleActiveClass("close", [overlay, content]);
   };
   close.onclick = () => {
-    overlay.classList.remove("is-active");
-    content.classList.remove("is-active");
+    toggleActiveClass("close", [overlay, content]);
   };
 });

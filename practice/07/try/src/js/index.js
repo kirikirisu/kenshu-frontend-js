@@ -5,6 +5,7 @@ const validateInput = (inputValue) => {
 
 window.addEventListener("DOMContentLoaded", (event) => {
   const button = document.getElementById("button");
+  const validationError = document.getElementById("error");
 
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -17,10 +18,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
       !validateInput(formData.get("age")) ||
       !validateInput(formData.get("term"))
     ) {
-      document.getElementById("error").classList.add("is-active");
+      validationError.classList.add("is-active");
       return;
     }
 
-    document.getElementById("error").classList.remove("is-active");
+    if (validationError.classList.contains("is-active")) {
+      validationError.classList.remove("is-active");
+    }
   });
 });

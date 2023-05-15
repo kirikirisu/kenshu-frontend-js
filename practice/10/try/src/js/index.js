@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }, 300);
   });
 
-  document.addEventListener("transitionend", () => {
+  list.addEventListener("transitionend", () => {
     if (curItem >= 3) {
       curItem = 0;
       list.style.transition = "left 0s";

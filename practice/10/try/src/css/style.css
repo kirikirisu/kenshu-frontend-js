@@ -31,9 +31,6 @@
   height: inherit;
   width: auto;
 }
-/* .list.is-transition {
-  transition: margin-left 0.3s;
-} */
 .item {
   width: 400px;
   height: inherit;
@@ -56,13 +53,4 @@
 .next:hover {
   background: #eee;
   cursor: pointer;
-}
-
-@keyframes next {
-  0% {
-    left: -800px;
-  }
-  to {
-    left: 0px;
-  }
 }

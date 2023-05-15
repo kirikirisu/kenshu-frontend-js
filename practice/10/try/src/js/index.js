@@ -33,23 +33,30 @@ window.addEventListener("DOMContentLoaded", (event) => {
       // }
     }
   });
+
   document.addEventListener("transitionend", () => {
     if (curItem === 3) {
       curItem = 0;
       list.style.transition = "left 0s";
       list.style.left = `-400px`;
     }
+    console.log(curItem);
+    if (curItem === -1) {
+      curItem = 2;
+      list.style.transition = "left 0s";
+      list.style.left = `-1200px`;
+    }
   });
 
   prev.addEventListener("click", function () {
     if (curItem === 0) {
-      curItem = 2;
-      list.style.left = `${-400 * maxItem}px`;
-      // list.style.transition = "";
+      curItem--;
+      list.style.transition = "left 0.3s";
+      list.style.left = `0px`;
     } else {
       curItem--;
-      list.style.left = `${-400 * curItem}px`;
-      // list.style.transition = "all 0.3s";
+      list.style.transition = "left 0.3s";
+      list.style.left = `${-400 + -400 * curItem}px`;
     }
   });
 });

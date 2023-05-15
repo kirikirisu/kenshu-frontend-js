@@ -3,10 +3,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const [prev] = document.getElementsByClassName("prev");
   const [next] = document.getElementsByClassName("next");
 
-  const slides = document.querySelectorAll(".item");
-
   let curItem = 0;
-  let maxItem = slides.length - 1;
 
   next.addEventListener("click", function () {
     curItem++;

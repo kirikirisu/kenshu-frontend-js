@@ -30,16 +30,17 @@
   left: 0;
   height: inherit;
   width: auto;
+  transition: all 0.5s;
 }
 .list.is-transition {
-  transition: margin-left .3s;
+  transition: margin-left 0.3s;
 }
 .item {
-  width:400px;
+  width: 400px;
   height: inherit;
 }
 .img {
-  width:inherit;
+  width: inherit;
   height: inherit;
 }
 .prev,

@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   prev.addEventListener("click", function () {
     if (curItem === 0) {
       curItem = 2;
-      list.style.left = `${-400 * 2}px`;
+      list.style.left = `${-400 * maxItem}px`;
     } else {
       curItem--;
       list.style.left = `${-400 * curItem}px`;

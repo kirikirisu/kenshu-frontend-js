@@ -5,16 +5,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   const slides = document.querySelectorAll(".item");
 
-  const elementFirstItem = document.querySelectorAll(".item")[0];
-  const copyElementFirstItem = elementFirstItem.cloneNode(true);
-  const setElementLastItem = document.querySelectorAll(".item")[slides.length];
-  list.insertBefore(copyElementFirstItem, setElementLastItem);
-
-  const elementLastItem = document.querySelectorAll(".item")[slides.length - 1];
-  const copyElementLastItem = elementLastItem.cloneNode(true);
-  const setElementFirstItem = document.querySelectorAll(".item")[0];
-  list.insertBefore(copyElementLastItem, setElementFirstItem);
-
   let curItem = 0;
   let maxItem = slides.length - 1;
 
@@ -23,25 +13,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
       curItem = 0;
       list.style.transition = "left 0.3s";
       list.style.left = `-400px`;
-      // list.style.transition = "";
     } else {
       curItem++;
       list.style.transition = "left 0.3s";
       list.style.left = `${-400 + -400 * curItem}px`;
-      // if (curItem === 3) {
-      //   list.style.transition = "left 0s";
-      // }
     }
   });
 
   document.addEventListener("transitionend", () => {
-    if (curItem === 3) {
+    if (curItem >= 3) {
       curItem = 0;
       list.style.transition = "left 0s";
       list.style.left = `-400px`;
     }
-    console.log(curItem);
-    if (curItem === -1) {
+
+    if (curItem <= -1) {
       curItem = 2;
       list.style.transition = "left 0s";
       list.style.left = `-1200px`;

@@ -30,7 +30,6 @@
   left: -400px;
   height: inherit;
   width: auto;
-  transition: left 0.3s;
 }
 /* .list.is-transition {
   transition: margin-left 0.3s;

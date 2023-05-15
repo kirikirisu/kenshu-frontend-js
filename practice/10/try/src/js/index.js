@@ -9,15 +9,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
   let maxItem = slides.length - 1;
 
   next.addEventListener("click", function () {
-    if (curItem === maxItem + 1) {
-      curItem = 0;
-      list.style.transition = "left 0.3s";
-      list.style.left = `-400px`;
-    } else {
-      curItem++;
-      list.style.transition = "left 0.3s";
-      list.style.left = `${-400 + -400 * curItem}px`;
-    }
+    curItem++;
+    list.style.transition = "left 0.3s";
+    list.style.left = `${-400 + -400 * curItem}px`;
   });
 
   document.addEventListener("transitionend", () => {
@@ -35,14 +29,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   prev.addEventListener("click", function () {
-    if (curItem === 0) {
-      curItem--;
-      list.style.transition = "left 0.3s";
-      list.style.left = `0px`;
-    } else {
-      curItem--;
-      list.style.transition = "left 0.3s";
-      list.style.left = `${-400 + -400 * curItem}px`;
-    }
+    curItem--;
+    list.style.transition = "left 0.3s";
+    list.style.left = `${-400 + -400 * curItem}px`;
   });
 });

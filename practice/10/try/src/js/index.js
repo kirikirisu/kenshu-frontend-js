@@ -16,6 +16,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   list.insertBefore(firstItem.cloneNode(true), items[items.length]);
   const lastItem = items[items.length - 1];
   list.insertBefore(lastItem.cloneNode(true), items[0]);
+  // 要素が追加された時のチラつきを防止
+  list.style.left = "-400px";
 
   let curItem = 0;
 

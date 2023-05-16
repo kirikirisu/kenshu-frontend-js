@@ -1,27 +1,27 @@
+const slideItemWithAnimation = (targetElement) => (nextItemNum) => {
+  targetElement.style.transition = "left 0.3s";
+  targetElement.style.left = `${-400 + -400 * nextItemNum}px`;
+};
+
 window.addEventListener("DOMContentLoaded", (event) => {
   const [list] = document.getElementsByClassName("list");
   const [prevButton] = document.getElementsByClassName("prev");
   const [nextButton] = document.getElementsByClassName("next");
 
+  const slideItem = slideItemWithAnimation(list);
+
   // 擬似的なitemを追加
   const items = document.querySelectorAll(".item");
-
-  const elementFirstItem = items[0];
-  const copyElementFirstItem = elementFirstItem.cloneNode(true);
-  const setElementLastItem = items[items.length];
-  list.insertBefore(copyElementFirstItem, setElementLastItem);
-
-  const elementLastItem = items[items.length - 1];
-  const copyElementLastItem = elementLastItem.cloneNode(true);
-  const setElementFirstItem = items[0];
-  list.insertBefore(copyElementLastItem, setElementFirstItem);
+  const firstItem = items[0];
+  list.insertBefore(firstItem.cloneNode(true), items[items.length]);
+  const lastItem = items[items.length - 1];
+  list.insertBefore(lastItem.cloneNode(true), items[0]);
 
   let curItem = 0;
 
   nextButton.addEventListener("click", function () {
     curItem++;
-    list.style.transition = "left 0.3s";
-    list.style.left = `${-400 + -400 * curItem}px`;
+    slideItem(curItem);
 
     // アニメーション中の 0.3s 間はクリックできないように制御する
     nextButton.style.pointerEvents = "none";
@@ -32,8 +32,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   prevButton.addEventListener("click", function () {
     curItem--;
-    list.style.transition = "left 0.3s";
-    list.style.left = `${-400 + -400 * curItem}px`;
+    slideItem(curItem);
 
     // アニメーション中の 0.3s 間はクリックできないように制御する
     prevButton.style.pointerEvents = "none";

@@ -3,6 +3,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const [prevButton] = document.getElementsByClassName("prev");
   const [nextButton] = document.getElementsByClassName("next");
 
+  // 擬似的なitemを追加
+  const items = document.querySelectorAll(".item");
+
+  const elementFirstItem = items[0];
+  const copyElementFirstItem = elementFirstItem.cloneNode(true);
+  const setElementLastItem = items[items.length];
+  list.insertBefore(copyElementFirstItem, setElementLastItem);
+
+  const elementLastItem = items[items.length - 1];
+  const copyElementLastItem = elementLastItem.cloneNode(true);
+  const setElementFirstItem = items[0];
+  list.insertBefore(copyElementLastItem, setElementFirstItem);
+
   let curItem = 0;
 
   nextButton.addEventListener("click", function () {

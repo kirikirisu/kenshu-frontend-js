@@ -27,19 +27,16 @@
   list-style: none;
   padding: 0;
   position: absolute;
-  left: 0;
+  left: 0px;
   height: inherit;
   width: auto;
 }
-.list.is-transition {
-  transition: margin-left .3s;
-}
 .item {
-  width:400px;
+  width: 400px;
   height: inherit;
 }
 .img {
-  width:inherit;
+  width: inherit;
   height: inherit;
 }
 .prev,
@@ -49,6 +46,7 @@
   line-height: inherit;
   font-size: 20px;
   text-align: center;
+  pointer-events: auto;
 }
 
 .prev:hover,
